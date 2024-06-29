@@ -1,0 +1,37 @@
+# motion module v3_sd15
+
+  motion_module:    "models/Motion_Module/v3_sd15_mm.ckpt"
+  dreambooth_path: "models/DreamBooth_LoRA/realisticVisionV60B1_v51VAE.safetensors"
+
+  model_config: "configs/model_config/model_config.yaml"
+  cfg_scale: 7.5 # in default realistic classifer-free guidance
+  negative_prompt: "ugly, deformed, noisy, blurry, distorted, out of focus, bad anatomy, extra limbs, poorly drawn face, poorly drawn hands, missing fingers"
+
+  num_inference_step: 200 # the denosing step for both inversion and inference
+  guidance_step: 120 # the step for guidance in inference
+  warm_up_step: 10 # the warm up step for guidance in inference
+  cool_up_step: 0 # the cool up step for guidance in inference
+  grad_guidance_scale: 1.0 # Gradient guidance scale, it will be multiplied with the weight in each type of guidance; 
+  grad_guidance_threshold: null # Gradient guidance threshold,number or null
+  
+  temp_guidance:
+    weight_each: [20000, 10000]  # [20000, 10000, 8000]
+    blocks:
+      [ 'up_blocks.1', 'up_blocks.2'] # the length of "blocks" must match the length of "weight_each"
+  app_guidance:
+    weight_each: [500] # 400, 200
+    block_type: "temp" # ["temp","spatial"] # determine the key in which block is used for appearance loss
+    blocks:
+      [ 'up_blocks.1'] # the length of "blocks" must match the length of "weight_each"
+
+    cross_attn_blocks:
+      [ 'up_blocks.1','up_blocks.2'] # the mask is only extracted from the "up_blocks.1", which is interpolated for other blocks.
+    cross_attn_mask_tr_example: 0.3 # threshold for mask extraction of example video 
+    cross_attn_mask_tr_app: 0.3  # threshold for mask extraction of appearance video
+# [ 'up_blocks.1', 'up_blocks.2', 'up_blocks.3']
+
+  video_path: 'resources/street.mp4'
+  inversion_prompt: "Busy urban street, many buildings on both sides, crossings" 
+  new_prompt : "Roman city-state, buildings on both sides, 8k, high detailed, best quality, film grain, Fujifilm XT3"
+  obj_pairs: ["street", "city-state"] # not required for global motion, such as camera motion
+

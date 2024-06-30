@@ -4,3 +4,5 @@ samples/
 models/
 
 inversion/
+
+!motionclone/models/

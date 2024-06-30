@@ -26,9 +26,12 @@ This repository is the official implementation of [MotionClone](https://arxiv.or
 
 ![teaser](__assets__/teaser.gif)
 
+## 🖋 News
+- Code released! (6.29)
+
 ## 🏗️ Todo
 - [ ] Release Gradio demo
-- [ ] Release the MotionClone code (We plan to release the code **this week**!)
+- [x] Release the MotionClone code (We have released **the first version** of our code and will continue to optimize it. We welcome any questions or issues you may have and will address them promptly.)
 - [x] Release paper
 
 ## 📚 Gallery
@@ -77,11 +80,11 @@ Manually download the AnimateDiff modules from [AnimateDiff](https://github.com/
 
 ### Perform DDIM Inversion
 ```
-python invert.py --config configs/inference_config/example.yaml
+python invert.py --config configs/inference_config/fox.yaml
 ```
 ### Perform Motion Cloning
 ```
-python sample.py --config configs/inference_config/example.yaml
+python sample.py --config configs/inference_config/fox.yaml
 ```
 
 

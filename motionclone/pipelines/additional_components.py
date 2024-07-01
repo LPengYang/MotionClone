@@ -214,22 +214,27 @@ def compute_cross_attn_mask(mask_blocks, cross_attn2_prob,token_index_example, t
             # [frame, H*W, 1]
             feature = mask_example_foreground["up_blocks.1"]
             shape = feature.shape
-            feature = F.interpolate(feature.permute(0,2,1).reshape(shape[0],1,16,16),(32,32),mode='nearest')
+            res = int(np.sqrt(feature.shape[1]))
+            # import pdb; pdb.set_trace()
+            feature = F.interpolate(feature.permute(0,2,1).reshape(shape[0],1,res,res),(2 * res, 2 * res),mode='nearest')
             mask_example_foreground[block_name]  = feature.reshape(shape[0],1,-1).permute(0,2,1)  
             
             feature = mask_example_background["up_blocks.1"]
             shape = feature.shape
-            feature = F.interpolate(feature.permute(0,2,1).reshape(shape[0],1,16,16),(32,32),mode='nearest')
+            res = int(np.sqrt(feature.shape[1]))
+            feature = F.interpolate(feature.permute(0,2,1).reshape(shape[0],1,res,res),(2 * res, 2 * res),mode='nearest')
             mask_example_background[block_name]  = feature.reshape(shape[0],1,-1).permute(0,2,1)
             
             feature = mask_app_foreground["up_blocks.1"]
             shape = feature.shape
-            feature = F.interpolate(feature.permute(0,2,1).reshape(shape[0],1,16,16),(32,32),mode='nearest')
+            res = int(np.sqrt(feature.shape[1]))
+            feature = F.interpolate(feature.permute(0,2,1).reshape(shape[0],1,res,res),(2 * res, 2 * res),mode='nearest')
             mask_app_foreground[block_name]  = feature.reshape(shape[0],1,-1).permute(0,2,1)
             
             feature = mask_app_background["up_blocks.1"]
             shape = feature.shape
-            feature = F.interpolate(feature.permute(0,2,1).reshape(shape[0],1,16,16),(32,32),mode='nearest')
+            res = int(np.sqrt(feature.shape[1]))
+            feature = F.interpolate(feature.permute(0,2,1).reshape(shape[0],1,res,res),(2 * res, 2 * res),mode='nearest')
             mask_app_background[block_name]  = feature.reshape(shape[0],1,-1).permute(0,2,1)
                                                         
         else:

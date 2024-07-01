@@ -6,3 +6,5 @@ models/
 inversion/
 
 !motionclone/models/
+
+*.pyc

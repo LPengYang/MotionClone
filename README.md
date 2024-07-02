@@ -27,6 +27,7 @@ This repository is the official implementation of [MotionClone](https://arxiv.or
 ![teaser](__assets__/teaser.gif)
 
 ## 🖋 News
+- The latest version of our paper (**v3**) is available on arXiv! (7.2)
 - Code released! (6.29)
 
 ## 🏗️ Todo

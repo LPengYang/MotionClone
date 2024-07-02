@@ -103,7 +103,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--pretrained-model-path", type=str, default="/mnt/hwfile/mllm/lingpengyang/loaded_models/stable-diffusion-v1-5",)
+    parser.add_argument("--pretrained-model-path", type=str, default="models/StableDiffusion/stable-diffusion-v1-5",)
     parser.add_argument("--model-config",      type=str, default="configs/model_config.yaml")    
     parser.add_argument("--config",            type=str, default="configs/example.yaml")
     parser.add_argument("--examples",          type=str, default=None)

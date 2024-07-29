@@ -58,6 +58,8 @@ def main(args):
     
     pipeline.scheduler.customized_step = customized_step.__get__(pipeline.scheduler)
     pipeline.scheduler.added_set_timesteps = set_timesteps.__get__(pipeline.scheduler)
+    # use low vram
+    pipeline.enable_sequential_cpu_offload()
     
     seed = config.get("seed", args.default_seed)
     set_all_seed(seed)

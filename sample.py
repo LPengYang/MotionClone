@@ -58,7 +58,10 @@ def main(args):
     
     pipeline.scheduler.customized_step = customized_step.__get__(pipeline.scheduler)
     pipeline.scheduler.added_set_timesteps = set_timesteps.__get__(pipeline.scheduler)
-    
+    # use low vram
+    if args.use_cpu_offload:
+        pipeline.enable_sequential_cpu_offload()
+        
     seed = config.get("seed", args.default_seed)
     set_all_seed(seed)
     generator = torch.Generator(device=pipeline.device)
@@ -115,6 +118,7 @@ if __name__ == "__main__":
     parser.add_argument("--W", type=int, default=512)
     parser.add_argument("--H", type=int, default=512)
     parser.add_argument("--without-xformers", action="store_true")
+    parser.add_argument("--use_cpu_offload", action="store_true")
 
     args = parser.parse_args()
     main(args)

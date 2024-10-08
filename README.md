@@ -24,7 +24,9 @@ This repository is the official implementation of [MotionClone](https://arxiv.or
 <!-- [![Open in OpenXLab](https://cdn-static.openxlab.org.cn/app-center/openxlab_app.svg)](https://bujiazi.github.io/motionclone.github.io/) -->
 <!-- [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-yellow)](https://bujiazi.github.io/motionclone.github.io/) -->
 
-![teaser](__assets__/teaser.gif)
+## Demo
+[![]](https://github.com/user-attachments/assets/d1f1c753-f192-455b-9779-94c925e51aaa)
+
 
 ## 🖋 News
 - The latest version of our paper (**v3**) is available on arXiv! (7.2)

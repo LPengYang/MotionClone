@@ -41,11 +41,17 @@ This repository is the official implementation of [MotionClone](https://arxiv.or
 We show more results in the [Project Page](https://bujiazi.github.io/motionclone.github.io/).
 
 ## 🚀 Method Overview
+### Feature visualization
 <div align="center">
-    <img src='__assets__/framework.jpg'/>
+    <img src='__assets__/feature_visualization.png'/>
 </div>
 
-As illustrated in the framework above, MotionClone comprises two core components in its guidance stage: **Primary Temporal-Attention Guidance** and **Location-Aware Semantic Guidance**, which operate synergistically to provide comprehensive motion and semantic guidance for controllable video generation.
+### Pipeline
+<div align="center">
+    <img src='__assets__/pipeline.png'/>
+</div>
+
+MotionClone utilizes sparse temporal attention weights as motion representations for motion guidance, facilitating diverse motion transfer across varying scenarios. Meanwhile, MotionClone allows for the direct extraction of motion representation through a single denoising step, bypassing the cumbersome inversion processes and thus promoting both efficiency and flexibility.
 
 ## 🔧 Installations (python==3.11.3 recommended)
 

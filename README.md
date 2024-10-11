@@ -1,8 +1,10 @@
 # MotionClone
-This repository is the official implementation of [MotionClone](https://arxiv.org/abs/2406.05338). It is a training-free framework that enables motion cloning from a reference video for controllable text-to-video generation.
+This repository is the official implementation of [MotionClone](https://arxiv.org/abs/2406.05338). It is a training-free framework that enables motion cloning from a reference video for controllable video generation.
 <details><summary>Click for the full abstract of MotionClone</summary>
 
-> We propose MotionClone, a training-free framework that enables motion cloning from a reference video to control text-to-video generation. We employ temporal attention in video inversion to represent the motions in the reference video and introduce primary temporal-attention guidance to mitigate the influence of noisy or very subtle motions within the attention weights. Furthermore, to assist the generation model in synthesizing reasonable spatial relationships and enhance its prompt-following capability, we propose a location-aware semantic guidance mechanism that leverages the coarse location of the foreground from the reference video and original classifier-free guidance features to guide the video generation.
+> Motion-based controllable video generation offers the potential for creating captivating visual content. Existing methods typically necessitate model training to encode particular motion cues or incorporate fine-tuning to inject certain motion patterns, resulting in limited flexibility and generalization.
+In this work, we propose **MotionClone** a training-free framework that enables motion cloning from reference videos to versatile motion-controlled video generation, including text-to-video and image-to-video. Based on the observation that the dominant components in temporal-attention maps drive motion synthesis, while the rest mainly capture noisy or very subtle motions, MotionClone utilizes sparse temporal attention weights as motion representations for motion guidance, facilitating diverse motion transfer across varying scenarios. Meanwhile, MotionClone allows for the direct extraction of motion representation through a single denoising step, bypassing the cumbersome inversion processes and thus promoting both efficiency and flexibility. 
+Extensive experiments demonstrate that MotionClone exhibits proficiency in both global camera motion and local object motion, with notable superiority in terms of motion fidelity, textual alignment, and temporal consistency.
 </details>
 
 **[MotionClone: Training-Free Motion Cloning for Controllable Video Generation](https://arxiv.org/abs/2406.05338)** 
@@ -29,11 +31,12 @@ This repository is the official implementation of [MotionClone](https://arxiv.or
 
 
 ## 🖋 News
+- The latest version of our paper (**v4**) is available on arXiv! (10.08)
 - The latest version of our paper (**v3**) is available on arXiv! (7.2)
 - Code released! (6.29)
 
 ## 🏗️ Todo
-- [ ] Release Gradio demo
+- [x] We have updated the latest version of MotionCloning, which performs motion transfer **without video inversion** and supports **image-to-video and sketch-to-video**.
 - [x] Release the MotionClone code (We have released **the first version** of our code and will continue to optimize it. We welcome any questions or issues you may have and will address them promptly.)
 - [x] Release paper
 
@@ -84,16 +87,26 @@ Manually download the community `.safetensors` models from [RealisticVision V5.1
 
 Manually download the AnimateDiff modules from [AnimateDiff](https://github.com/guoyww/AnimateDiff), we recommend [`v3_adapter_sd_v15.ckpt`](https://huggingface.co/guoyww/animatediff/blob/main/v3_sd15_adapter.ckpt) and [`v3_sd15_mm.ckpt.ckpt`](https://huggingface.co/guoyww/animatediff/blob/main/v3_sd15_mm.ckpt). Save the modules to `models/Motion_Module`.
 
+### Prepare SparseCtrl for image-to-video and sketch-to-video
+Manually download "v3_sd15_sparsectrl_rgb.ckpt" and "v3_sd15_sparsectrl_scribble.ckpt" from [AnimateDiff](https://huggingface.co/guoyww/animatediff/tree/main). Save the modules to `models/SparseCtrl`.
 
 ## 🎈 Quick Start
 
-### Perform DDIM Inversion
+### Perform Text-to-video generation with customized camera motion
 ```
-python invert.py --config configs/inference_config/fox.yaml
+python t2v_video_sample.py --inference_config "configs/t2v_camera.yaml" --examples "configs/t2v_camera.jsonl"
 ```
-### Perform Motion Cloning
+### Perform Text-to-video generation with customized object motion
 ```
-python sample.py --config configs/inference_config/fox.yaml
+python t2v_video_sample.py --inference_config "configs/t2v_object.yaml" --examples "configs/t2v_object.jsonl"
+```
+### Combine motion cloning with sketch-to-video
+```
+python i2v_video_sample.py --inference_config "configs/i2v_sketch.yaml" --examples "configs/i2v_sketch.jsonl"
+```
+### Combine motion cloning with image-to-video
+```
+python i2v_video_sample.py --inference_config "configs/i2v_rgb.yaml" --examples "configs/i2v_rgb.jsonl"
 ```
 
 
@@ -120,6 +133,3 @@ Feel free to contact us if you would like remove them.
 The code is built upon the below repositories, we thank all the contributors for open-sourcing.
 * [AnimateDiff](https://github.com/guoyww/AnimateDiff)
 * [FreeControl](https://github.com/genforce/freecontrol)
-
-## 🌟 Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=Bujiazi/MotionClone&type=Date)](https://star-history.com/#Bujiazi/MotionClone&Date)

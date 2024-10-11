@@ -1,0 +1,6 @@
+{"video_path":"reference_videos/sample_astronaut.mp4",  "new_prompt": "Robot, walks in the street.","seed":59}
+{"video_path":"reference_videos/sample_cat.mp4",  "new_prompt": "Tiger, raises its head.", "seed": 2025}
+{"video_path":"reference_videos/sample_leaves.mp4",  "new_prompt": "Petals falling in the wind.","seed":3407}
+{"video_path":"reference_videos/sample_fox.mp4",  "new_prompt": "Cat, turns its head in the living room."}
+{"video_path":"reference_videos/sample_blackswan.mp4",  "new_prompt": "Duck, swims in the river.","seed":3407}
+{"video_path":"reference_videos/sample_cow.mp4",  "new_prompt": "Pig, drinks water on beach.","seed":3407}

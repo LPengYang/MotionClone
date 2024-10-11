@@ -1,0 +1,20 @@
+motion_module:    "models/Motion_Module/v3_sd15_mm.ckpt"
+dreambooth_path: "models/DreamBooth_LoRA/realisticVisionV60B1_v51VAE.safetensors"
+model_config: "configs/model_config/model_config.yaml"
+controlnet_path: "models/SparseCtrl/v3_sd15_sparsectrl_rgb.ckpt"
+controlnet_config: "configs/sparsectrl/latent_condition.yaml"
+adapter_lora_path: "models/Motion_Module/v3_sd15_adapter.ckpt"
+
+cfg_scale: 7.5 # in default realistic classifer-free guidance
+negative_prompt: "ugly, deformed, noisy, blurry, distorted, out of focus, bad anatomy, extra limbs, poorly drawn face, poorly drawn hands, missing fingers"
+
+inference_steps: 100 # the total denosing step for inference
+guidance_scale: 0.3 # which scale of time step to end guidance
+guidance_steps: 40 # the step for guidance in inference, no more than 1000*guidance_scale, the remaining steps (inference_steps-guidance_steps) is performed without gudiance
+warm_up_steps: 10
+cool_up_steps: 10
+
+motion_guidance_weight: 2000
+motion_guidance_blocks: ['up_blocks.1']
+
+add_noise_step: 400

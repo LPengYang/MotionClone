@@ -1,0 +1,12 @@
+{"video_path":"reference_videos/camera_zoom_in.mp4",  "new_prompt": "Relics on the seabed", "seed": 42}
+{"video_path":"reference_videos/camera_zoom_in.mp4",  "new_prompt": "A road in the mountain", "seed": 42}
+{"video_path":"reference_videos/camera_zoom_in.mp4",  "new_prompt": "Caves, a path for exploration", "seed": 2026}
+{"video_path":"reference_videos/camera_zoom_in.mp4",  "new_prompt": "Railway for train"}
+{"video_path":"reference_videos/camera_zoom_out.mp4",  "new_prompt": "Tree, in the mountain", "seed": 2026}
+{"video_path":"reference_videos/camera_zoom_out.mp4",  "new_prompt": "Red car on the track", "seed": 2026}
+{"video_path":"reference_videos/camera_zoom_out.mp4",  "new_prompt": "Man, standing in his garden.", "seed": 2026}
+{"video_path":"reference_videos/camera_1.mp4",  "new_prompt": "A island, on the ocean, sunny day"}
+{"video_path":"reference_videos/camera_1.mp4",  "new_prompt": "A tower, with fireworks"}
+{"video_path":"reference_videos/camera_pan_up.mp4",  "new_prompt": "Beautiful house, around with flowers", "seed": 42}
+{"video_path":"reference_videos/camera_translation_2.mp4",  "new_prompt": "Forest, in winter", "seed": 2028}
+{"video_path":"reference_videos/camera_pan_down.mp4",  "new_prompt": "Eagle, standing in the tree", "seed": 2026}

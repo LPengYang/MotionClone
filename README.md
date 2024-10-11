@@ -1,5 +1,5 @@
 # MotionClone
-This repository is the official implementation of [MotionClone](https://arxiv.org/abs/2406.05338). It is a training-free framework that enables motion cloning from a reference video for controllable video generation.
+This repository is the official implementation of [MotionClone](https://arxiv.org/abs/2406.05338). It is a **training-free framework** that enables motion cloning from a reference video for controllable video generation, **without cumbersome video inversion processes**.
 <details><summary>Click for the full abstract of MotionClone</summary>
 
 > Motion-based controllable video generation offers the potential for creating captivating visual content. Existing methods typically necessitate model training to encode particular motion cues or incorporate fine-tuning to inject certain motion patterns, resulting in limited flexibility and generalization.
